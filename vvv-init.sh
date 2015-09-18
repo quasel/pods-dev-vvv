@@ -10,9 +10,9 @@ then
 	# **
 
 	# Create the database over again.
-	mysql -u root --password=root -e "DROP DATABASE IF EXISTS wordpress_themereview"
-	mysql -u root --password=root -e "CREATE DATABASE IF NOT EXISTS wordpress_themereview"
-	mysql -u root --password=root -e "GRANT ALL PRIVILEGES ON wordpress_themereview.* TO wp@localhost IDENTIFIED BY 'wp';"
+	mysql -u root --password=root -e "DROP DATABASE IF EXISTS wordpress_pods"
+	mysql -u root --password=root -e "CREATE DATABASE IF NOT EXISTS wordpress_pods"
+	mysql -u root --password=root -e "GRANT ALL PRIVILEGES ON wordpress_pods.* TO wp@localhost IDENTIFIED BY 'wp';"
 
 	# **
 	# WordPress
@@ -22,14 +22,38 @@ then
 	wp core download
 
 	# Install WordPress.
-	wp core config --dbname="wordpress_themereview" --dbuser=wp --dbpass=wp --dbhost="localhost" --extra-php <<PHP
+	wp core config --dbname="wordpress_pods" --dbuser=wp --dbpass=wp --dbhost="localhost" --extra-php <<PHP
 define( 'WP_DEBUG', true );
-define( 'SCRIPT_DEBUG', true );
-define( 'WP_DEBUG_LOG', true );
+
+// Enable Pods Developer Preview features
+define( "PODS_DEVELOPER", true );
+
+// Enable Pods GitHub updates
+define( "PODS_GITHUB_UPDATE", true );
+define( 'GITHUB_UPDATER_EXTENDED_NAMING', true );
+
+// Enable Pods debugging and strict debugging (mu plugin)
+define( "PODS_DEBUG", true );
+
+// Disable Debug logging to the /wp-content/debug.log file
+define( "WP_DEBUG_LOG", false );
+
+// Force display of errors and warnings
+define( "WP_DEBUG_DISPLAY", true );
+@ini_set( "display_errors", 1 );
+
+// Enable Save Queries
+define( "SAVEQUERIES", true );
+
+// Use dev versions of core JS and CSS files (only needed if you are modifying these core files)
+define( "SCRIPT_DEBUG", true );
+
+// Set Jetpack to Debug
+define( "JETPACK_DEV_DEBUG", true );
 PHP
 
 	# Install into DB
-	wp core install --url=themereview.wordpress.dev --title="A WordPress Theme Reviewers VVV" --admin_user=admin --admin_password=password --admin_email=changme@changeme.com
+	wp core install --url=pods.wordpress.dev --title="Pods Dev VVV" --admin_user=admin --admin_password=password --admin_email=changme@changeme.com
 
 	# **
 	# Your themes
@@ -45,28 +69,27 @@ PHP
 
 	wp plugin install wordpress-importer --activate
 	wp plugin install developer --activate
-	wp plugin install theme-check --activate
-	wp plugin install theme-mentor --activate
-	wp plugin install theme-checklist --activate
 	wp plugin install what-the-file --activate
-	wp plugin install vip-scanner --activate
 	wp plugin install wordpress-database-reset --activate
-	wp plugin install toolbar-theme-switcher --activate
-	wp plugin install rtl-tester
-	wp plugin install piglatin
-	wp plugin install debug-bar  --activate
+	wp plugin install query-monitor  --activate
 	wp plugin install debug-bar-console  --activate
 	wp plugin install debug-bar-cron  --activate
 	wp plugin install debug-bar-extender  --activate
+	wp plugin install debug-bar-constants
+	wp plugin install debug-bar-post-types  --activate
+	wp plugin install debug-bar-shortcodes
+	wp plugin install tdd-debug-bar-post-meta --activate
 	wp plugin install rewrite-rules-inspector  --activate
 	wp plugin install log-deprecated-notices  --activate
 	wp plugin install log-viewer  --activate
-	wp plugin install monster-widget  --activate
-	wp plugin install user-switching  --activate
-	wp plugin install regenerate-thumbnails  --activate
+	wp plugin install monster-widget
+	wp plugin install user-switching
 	wp plugin install simply-show-ids  --activate
-	wp plugin install theme-test-drive  --activate
-	wp plugin install wordpress-beta-tester  --activate
+	wp plugin install wordpress-beta-tester
+	wp plugin install https://github.com/afragen/github-updater/archive/5.1.1.zip --activate
+	wp plugin install pods
+	wp plugin install https://github.com/pods-framework/pods/archive/2.x.zip
+	wp plugin install https://github.com/pods-framework/pods/archive/3.x.zip
 
 	# **
 	# Unit Data
@@ -78,7 +101,7 @@ PHP
 	rm theme-unit-test-data.xml
 
 	# Replace url from unit data
-	wp search-replace 'wpthemetestdata.wordpress.com' 'themereview.wordpress.dev' --skip-columns=guid
+	wp search-replace 'wpthemetestdata.wordpress.com' 'pods.wordpress.dev' --skip-columns=guid
 
 	cd ..
 
@@ -94,7 +117,7 @@ else
 		wp core update-db
 
 		# Update Plugins
-		wp plugin update --all
+		wp plugin update --all --skip-plugins[=pods]
 
 		# **
 		# Your themes
@@ -109,3 +132,6 @@ else
 	cd ..
 
 fi
+
+# Enable debugging per default
+/home/vagrant/bin/xdebug_on
