@@ -1,3 +1,6 @@
+
+/home/vagrant/bin/xdebug_off
+
 # If we delete htdocs, let's just start over.
 if [ ! -d htdocs ]
 then
@@ -68,7 +71,7 @@ PHP
 	# **
 
 	wp plugin install wordpress-importer --activate
-	wp plugin install developer --activate
+	wp plugin install developer
 	wp plugin install what-the-file --activate
 	wp plugin install wordpress-database-reset --activate
 	wp plugin install query-monitor  --activate
@@ -88,8 +91,10 @@ PHP
 	wp plugin install wordpress-beta-tester
 	wp plugin install https://github.com/afragen/github-updater/archive/5.1.1.zip --activate
 	wp plugin install pods
+	wp plugin install pods -version=2.5.4
+	wp plugin install pods -version=2.5.3
 	wp plugin install https://github.com/pods-framework/pods/archive/2.x.zip
-	wp plugin install https://github.com/pods-framework/pods/archive/3.x.zip
+	wp plugin install https://github.com/pods-framework/pods/archive/release/3.0.zip
 
 	# **
 	# Unit Data
