@@ -127,7 +127,7 @@ else
 		wp core update-db
 
 		# Update Plugins
-		wp plugin update --all --skip-plugins[=pods]
+		wp plugin update --all --skip-plugins=pods
 
 		# **
 		# Your themes

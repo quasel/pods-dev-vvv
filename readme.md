@@ -33,8 +33,8 @@ You can do it the soft way using `vagrant ssh -c 'cd /srv/www/pods-dev-vvv/ && r
 
 ## What will happen?
 
-- Install WordPress and import "Theme Unit Test Data"
-- Install a bunch of developer plugins you might need ( especially Query Monitor which replaces Debug Bar but you can still use all the extensions)
+- Install WordPress and import "Theme Unit Test Data" ( if you dont want it comment out lines after # Import the unit data. in vvv-init.sh )
+- Install a bunch of developer plugins you might need ( especially Query Monitor which replaces Debug Bar but you can still use all the extensions )
 - Install any `.zip` themes located in the root
 
 ## Credentials and Such

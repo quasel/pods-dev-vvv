@@ -1,3 +1,11 @@
+# PhpStorm
+
+There are different ways to set it up
+
+
+
+
+
 # PHPUnit + PhpStorm with VVV Configuration
 
 1) Configure Vagrant: Settings -> Tools -> Vagrant
