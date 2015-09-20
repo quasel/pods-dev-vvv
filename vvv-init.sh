@@ -90,11 +90,6 @@ PHP
 	wp plugin install simply-show-ids  --activate
 	wp plugin install wordpress-beta-tester
 	wp plugin install https://github.com/afragen/github-updater/archive/5.1.1.zip --activate
-	wp plugin install pods
-	wp plugin install pods -version=2.5.4
-	wp plugin install pods -version=2.5.3
-	wp plugin install https://github.com/pods-framework/pods/archive/2.x.zip
-	wp plugin install https://github.com/pods-framework/pods/archive/release/3.0.zip
 
 
 	# **
@@ -109,7 +104,10 @@ PHP
 	# Replace url from unit data
 	wp search-replace 'wpthemetestdata.wordpress.com' 'pods.wordpress.dev' --skip-columns=guid
 
-	cd ..
+	cd wp-content/plugins
+	git clone https://github.com/pods-framework/pods
+
+	cd ../../../
 
 else
 

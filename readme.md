@@ -1,20 +1,24 @@
-# A WordPress Theme Reviewers VVV
+# A WordPress PODS VVV
 
-This is an [auto-sitesetup](https://github.com/Varying-Vagrant-Vagrants/VVV/wiki/Auto-site-Setup) designed to be used with [Varying Vagrants Vagrant](https://github.com/Varying-Vagrant-Vagrants/VVV) for reviewing WordPress.org themes.
+This is an [auto-sitesetup](https://github.com/Varying-Vagrant-Vagrants/VVV/wiki/Auto-site-Setup) designed to be used with [Varying Vagrants Vagrant](https://github.com/Varying-Vagrant-Vagrants/VVV) for developing pods or a custom website using pods.
 
 ## To get started:
 
-1. Clone this repo to your VVV/`www` folder
-2. Update to a [release tag](https://github.com/aubreypwd/wordpress-themereview-vvv/releases) to keep stable
-3. If your Vagrant is running, from the Vagrant directory run `vagrant halt` followed by `vagrant up --provision`.
+1. Clone this repo to your VVV/`www` folder - `git clone https://github.com/quasel/pods-dev-vvv` ( or download it )
+2. If your Vagrant is running, from the Vagrant directory run `vagrant halt` followed by `vagrant up --provision`.
+3. Known Issue: Soemtiems you need to deactivat/activate the query-monitor plugin to get it working ( strange don't know why )
 
 Perhaps a cup of tea or coffee now? The provisioning may take a while.
 
-Then you can visit [http://themereview.wordpress.dev](http://themereview.wordpress.dev) to start developing or reviewing themes.
+Then you can visit [http://pods.wordpress.dev](http://pods.wordpress.dev) to start developing or reviewing pods.
 
-## To start over (review another theme):
+## To start over or update ( reset ):
 
-You can do it the soft way using (I know it's long, Text Expander?) `vagrant ssh -c 'cd /home/vagrant/www/wordpress-themereview-vvv/ && rm -Rf htdocs/ && sh vvv-init.sh'`. Or, you can do it the hard way `vagrant reload --provision` and get a cup of coffee.
+### fresh start
+You can do it the soft way using (I know it's long, Text Expander?) `vagrant ssh -c 'cd /srv/www/pods-dev-vvv/ && rm -Rf htdocs/ && sh vvv-init.sh'`. Or, you can do it the hard way `vagrant reload --provision` and get a cup of coffee.
+
+### just update everything except pods
+`vagrant ssh -c 'cd /srv/www/pods-dev-vvv/ && sh vvv-init.sh'`
 
 ## Dependencies
 
@@ -24,7 +28,7 @@ You can do it the soft way using (I know it's long, Text Expander?) `vagrant ssh
 ## What will happen?
 
 - Install WordPress and import "Theme Unit Test Data"
-- Install a bunch of developer plugins you'll need
+- Install a bunch of developer plugins you might need ( especially Query Monitor which replaces Debug Bar but you can still use all the extensions)
 - Install any `.zip` themes located in the root
 
 ## Credentials and Such
@@ -33,7 +37,7 @@ You can do it the soft way using (I know it's long, Text Expander?) `vagrant ssh
 
 * Username: `admin`
 * Password: `password`
-* Login: [login](http://themereview.wordpress.dev/wp-admin)
+* Login: [login](http://pods.wordpress.dev/wp-admin)
 
 ### MySQL Root
 
@@ -41,35 +45,20 @@ You can do it the soft way using (I know it's long, Text Expander?) `vagrant ssh
 * Pass: `root`
 * See: [Connecting to MySQL](https://github.com/varying-vagrant-vagrants/vvv/wiki/Connecting-to-MySQL) from your local machine
 
-# Reviewing Themes
+# Using Themes
 
 If you drop a theme's `.zip` file into the root folder (not htdocs) provisioning will automatically install the theme ready for activation.
-
 Yes, drop six zip files and all six themes will install automagically.
 
 _________________________
 
 # Changelog
 
-## 1.2.1
+## 0.1
 
-- Now you can use the quick way to reset everything and it will still import your theme `.zip`s
+- based on https://github.com/aubreypwd/wordpress-themereview-vvv adapted for pods
 
-## 1.2
-
-- Merged in smartness from [grappler/theme-review/](https://github.com/grappler/theme-review/)
-- Now you can add `.zip` files in the root and they will install at provisioning time
-
-## 1.1
-
-- Theme Unit Data is dynamic thanks to @RCowles
-
-## 1.0
-
-- The old VVV theme review
-
-_________________________
 
 # Contributors
 
-@aubreypwd @RCowles @grappler
+@aubreypwd @RCowles @grappler @quasel
