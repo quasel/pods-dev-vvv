@@ -4,20 +4,26 @@ This is an [auto-sitesetup](https://github.com/Varying-Vagrant-Vagrants/VVV/wiki
 
 ## To get started:
 
-1. Clone this repo to your VVV/`www` folder - `git clone https://github.com/quasel/pods-dev-vvv` ( or download it )
+Important: The Database `wordpress_<directory>` gets deleted on install/reset ( any special characters are removed from the Folder Name )
+
+1. Download or clone this repo to your VVV/`www` folder - `git clone https://github.com/quasel/pods-dev-vvv`
 2. If your Vagrant is running, from the Vagrant directory run `vagrant halt` followed by `vagrant up --provision`.
-3. Known Issue: Soemtiems you need to deactivat/activate the query-monitor plugin to get it working ( strange don't know why )
+3. Known Issue: Sometimes you need to deactivate/activate the query-monitor plugin to get it working ( strange don't know why )
 
 Perhaps a cup of tea or coffee now? The provisioning may take a while.
-
 Then you can visit [http://pods.wordpress.dev](http://pods.wordpress.dev) to start developing or reviewing pods.
+
+### Need more than one? Want a different URL?
+
+1. Download or Copy to a new Folder
+2. Search&Replace `pods.wordpress.dev` in `vvv-hosts` `vvv-init.sh` `vvv-nginx.conf` with your desired URL
+3. -> Get Started ^^
 
 ## To start over or update ( reset ):
 
-### fresh start
-You can do it the soft way using (I know it's long, Text Expander?) `vagrant ssh -c 'cd /srv/www/pods-dev-vvv/ && rm -Rf htdocs/ && sh vvv-init.sh'`. Or, you can do it the hard way `vagrant reload --provision` and get a cup of coffee.
-
-### just update everything except pods
+### A fresh start:
+You can do it the soft way using `vagrant ssh -c 'cd /srv/www/pods-dev-vvv/ && rm -Rf htdocs/ && sh vvv-init.sh'`. Or, you can do it the hard way `vagrant reload --provision` and get a cup of coffee.
+### Just update everything except pods:
 `vagrant ssh -c 'cd /srv/www/pods-dev-vvv/ && sh vvv-init.sh'`
 
 ## Dependencies

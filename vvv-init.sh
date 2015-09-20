@@ -1,5 +1,11 @@
+#!/usr/bin/env bash
 
 /home/vagrant/bin/xdebug_off
+
+# for multiple usage
+BASE=$(basename $(pwd) )
+DBNAME="wordpress_"${BASE//[^[:alnum:]]/}
+echo "Database: "$DBNAME
 
 # If we delete htdocs, let's just start over.
 if [ ! -d htdocs ]
@@ -13,9 +19,9 @@ then
 	# **
 
 	# Create the database over again.
-	mysql -u root --password=root -e "DROP DATABASE IF EXISTS wordpress_pods"
-	mysql -u root --password=root -e "CREATE DATABASE IF NOT EXISTS wordpress_pods"
-	mysql -u root --password=root -e "GRANT ALL PRIVILEGES ON wordpress_pods.* TO wp@localhost IDENTIFIED BY 'wp';"
+	mysql -u root --password=root -e "DROP DATABASE IF EXISTS "$DBNAME
+	mysql -u root --password=root -e "CREATE DATABASE IF NOT EXISTS "$DBNAME
+	mysql -u root --password=root -e "GRANT ALL PRIVILEGES ON "$DBNAME".* TO wp@localhost IDENTIFIED BY 'wp';"
 
 	# **
 	# WordPress
@@ -25,7 +31,7 @@ then
 	wp core download
 
 	# Install WordPress.
-	wp core config --dbname="wordpress_pods" --dbuser=wp --dbpass=wp --dbhost="localhost" --extra-php <<PHP
+	wp core config --dbname=$DBNAME --dbuser=wp --dbpass=wp --dbhost="localhost" --extra-php <<PHP
 define( 'WP_DEBUG', true );
 
 // Enable Pods Developer Preview features
@@ -56,7 +62,7 @@ define( "JETPACK_DEV_DEBUG", true );
 PHP
 
 	# Install into DB
-	wp core install --url=pods.wordpress.dev --title="Pods Dev VVV" --admin_user=admin --admin_password=password --admin_email=changme@changeme.com
+	wp core install --url=pods.wordpress.dev --title=$BASE --admin_user=admin --admin_password=password --admin_email=changme@changeme.com
 
 	# **
 	# Your themes
