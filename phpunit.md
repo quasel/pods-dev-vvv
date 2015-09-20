@@ -66,7 +66,7 @@ Be Happy
 - Set the PHP interpreter path to “/usr/bin/php”
 - Click “OK” on the Remote PHP Interpreter dialog
 
-![Remote PHP Setup](/screenshots/php.jpeg.jpeg)
+![Remote PHP Setup](/screenshots/php.jpeg)
 
 - Name the new remote interpreter, select it, and click “OK” in the interpreters dialog
 - Select the newly created interpreter in the PHP configuration dialog
