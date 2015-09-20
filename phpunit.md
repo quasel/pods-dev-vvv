@@ -31,25 +31,28 @@ PphStorm has Vagrant support but it's not needed
 
 ## Debugging in PhpStorm
 
-Setup the deployment configuration: Build, Execution, Deployment -> Deployment
+Setup the deployment configuration:
+- goTo Settings -> Build, Execution, Deployment -> Deployment
+
 ![Deployment Config](/screenshots/deployment.jpeg)
-Name it
-sftp server (127.0.0.1, 2222, vagrant/vagrant)
-Web server root URL
-path mappings for local and deployment
+- Name it
+- sftp server (127.0.0.1, 2222, vagrant/vagrant)
+- Web server root URL
+- path mappings for local and deployment
 
 ![Path Mappings](/screenshots/deploy_path.jpeg)
 
 Notice: i did Use the `htdocs Folder! (this way everything else just works out of the box)
 
 
-Test Debugging:
+#### Test Debugging:
 
-Set Breakpoint
-Start Listening for incoming connections  ( top right corner or Run -> Start Lis... almost at the end )
-Open your Browser http://pods.wordpress.dev
+- Set Breakpoint
+- Start Listening for incoming connections  ( top right corner or Run -> Start Lis... almost at the end )
+- Open your Browser http://pods.wordpress.dev
 
-The First Time PhpStorm should Pop UP with
+The First Time PhpStorm should Pop UP with:
+
 ![Debug](/screenshots/debug_incoming.jpeg)
 
 
