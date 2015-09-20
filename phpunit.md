@@ -3,7 +3,7 @@
 There are different ways to set it up
 Basics:
 
-Create New Project:
+#### Create New Project:
 I choose to point PhpStorm to the plugin directory itself:
 
 ![New Project](/screenshots/new_project.jpeg)
@@ -13,7 +13,7 @@ Now Take a look at the Event Log (normally at lower right corner):
 - WordPress Support: WordPress code style can be set for this project. Set it?  -> Yes
 - WordPress Support: For WordPress containing plugins inside it's better to add whole WordPress to project. Fix? Or ignore? -> Klick on fix ( settings -> project -> directories ) this way PhpStorm uses the full WordPress but the .idea Folder is in the pods directory - this can be usefull if you want e.g a separate Project for your theme but use the same vvv-site
 
-if you did Clone pods-dev-vvv:
+#### If you did Clone pods-dev-vvv
 - Unregistered VCS root detected
          The directory /Users/quasel/vagrant-vvv/www/pods-dev-vvv is under Git, but is not registered in the Settings.
          Add root  Configure  Ignore
