@@ -65,8 +65,12 @@ _________________________
 
 # Changelog
 
-## 0.1
+## 0,2
+- improve images
+- improve text
+- improve layout
 
+## 0.1
 - based on https://github.com/aubreypwd/wordpress-themereview-vvv adapted for pods
 
 
