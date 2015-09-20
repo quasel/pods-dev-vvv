@@ -22,11 +22,15 @@ This can be useful if you want e.g a separate Project for your theme but use the
          The directory /Users/quasel/vagrant-vvv/www/pods-dev-vvv is under Git, but is not registered in the Settings.
          Add root  Configure  Ignore
 
-You can ignore it because we only care about Git in our Plugin Folder ( e.g. pods )
+You can ignore it because we only care about Git in our Plugin Folder ( e.g. pods ) and the hdocs Folder is in .gitignore
 
 #### Optional - Vagrant
 Configure Vagrant: Settings -> Tools -> Vagrant
 PphStorm has Vagrant support but it's not needed
+
+## Benefits this way
+
+- WordPress & all other Plugins/Themes are automatically indexed via phpStorm thus it can jump to function directly or give docs with ctrl-Q
 
 
 ## Debugging in PhpStorm
