@@ -72,4 +72,8 @@ _________________________
 
 # Contributors
 
-@aubreypwd @RCowles @grappler @quasel
+@quasel, @pglewis ( https://docs.google.com/document/d/1WOzgYlU8PnJ99ScRePumfUwg645vmuE4v5MyshOYF4M/edit# )
+
+Forked from https://github.com/aubreypwd/wordpress-themereview-vvv
+@aubreypwd @RCowles @grappler
+
