@@ -1,24 +1,51 @@
 # PhpStorm
 
 There are different ways to set it up
+Basics:
+
+Create New Project:
+
+![New Project](/screenshots/new_project.jpeg)
+
+Event Log:
+WordPress Support: Looks like it's WordPress plugin. Enable WordPress support? Or do not ask again? -> Yes
+WordPress Support: WordPress code style can be set for this project. Set it?  -> Yes
+WordPress Support: For WordPress containing plugins inside it's better to add whole WordPress to project. Fix? Or ignore? -> Klick on fix ( settings -> project -> directories )
+
+if you did Clone pods-dev-vvv
+Event Log:
+Unregistered VCS root detected
+         The directory /Users/quasel/vagrant-vvv/www/pods-dev-vvv is under Git, but is not registered in the Settings.
+         Add root  Configure  Ignore
+
+You can ignore it because we only care about Git in our Plugin Folder ( e.g. pods )
 
 
+1. Optional - Vagrant
+    Configure Vagrant: Settings -> Tools -> Vagrant
+    PphStorm has Vagrant support but it's not needed
 
 
-
-# PHPUnit + PhpStorm with VVV Configuration
-
-1) Configure Vagrant: Settings -> Tools -> Vagrant
-
-
-
-2) Setup the deployment configuration: Build, Execution, Deployment -> Deployment
+#### Debugging in PhpStorm
+Setup the deployment configuration: Build, Execution, Deployment -> Deployment
 sftp server (127.0.0.1, 2222, vagrant/vagrant)
+Web server root URL
 path mappings for local and deployment
 Name it
 
+
+Set Breakpoint
+Start Listening for incoming connections
+
+Accept
+
+Be Happy
+
+
+
+#### PHPUnit
 
-3) Configure remote PHP: Settings -> Languages & Frameworks -> PHP [TODO: ! This needs an update to use the deployment configuration in step 2]
+1. Configure remote PHP: Settings -> Languages & Frameworks -> PHP
 
 
 Click the “...” to the right of the “Interpreter” drop down to open the interpreters dialog
@@ -35,7 +62,8 @@ Set the appropriate, matching PHP language level and click “OK” or “Apply�
 
 
 
-4) Configure PHPUnit: Settings-> Languages & Frameworks -> PHP -> PHPUnit
+
+2. Configure PHPUnit: Settings-> Languages & Frameworks -> PHP -> PHPUnit
 
 
 
@@ -48,7 +76,7 @@ Click “OK” or “Apply”
 
 
 
-5) Create a new Run/Debug Configuration: Run -> Edit Configurations (not in the Settings panel)
+3. Create a new Run/Debug Configuration: Run -> Edit Configurations (not in the Settings panel)
 
 
 
@@ -60,15 +88,18 @@ Also add WP_DEVELOP_DIR and set it to “/srv/www/wordpress-develop” (no trail
 Click “OK”
 Click “OK” to apply the changes
 
-6) Run your Configuration: Run -> ‘your config name….’
+4. Run your Configuration: Run -> ‘your config name….’
 
 Now you can run tests via Run > ‘your debug configuration name...’ (like “Pods Tests” is above), it’s a context menu or you can get to it through the menu bar.
 
 A window will come up in the bottom of the screen with your test results and it’s useful to pin it, so you can test and fix things as needed. It provides useful information you’ll need to debug issues.
 
 It’s important to remember that line numbers may be one off when you click through on test results, double clicking the result for a failed method will take you to the right place, but often a line or so above it is where the cursor will be set.
-7) Debug
+5. Debug
 
 You do not need to set the “Listen for Debug Connections” toggle when debugging tests.  “Run” (shift-f10) will run the tests and ignore breakpoints.  “Debug” (shift-f9) will stop at any breakpoints and debug as usual without the “listen” toggle set.  Setting the “listen” toggle might cause it to act weird, so just forget about it for debugging with phpUnit integration.
 
 Fatal errors during tests do not seem to completely terminate without closing the run or debug window via the red ‘X’.  The run/debug session will remain open and will not permit subsequent runs without doing this or restarting phpStorm.
+
+
+# PHPUnit + PhpStorm with VVV Configuration
