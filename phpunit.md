@@ -7,10 +7,11 @@ Create New Project:
 
 ![New Project](/screenshots/new_project.jpeg)
 
+Now Take a look at the Event Log (normally at lower right corner)
 Event Log:
 WordPress Support: Looks like it's WordPress plugin. Enable WordPress support? Or do not ask again? -> Yes
 WordPress Support: WordPress code style can be set for this project. Set it?  -> Yes
-WordPress Support: For WordPress containing plugins inside it's better to add whole WordPress to project. Fix? Or ignore? -> Klick on fix ( settings -> project -> directories )
+WordPress Support: For WordPress containing plugins inside it's better to add whole WordPress to project. Fix? Or ignore? -> Klick on fix ( settings -> project -> directories ) this way PhpStorm uses the full WordPress but the .idea Folder is in the pods directory - this can be usefull if you want e.g a separate Project for your theme but use the same vvv-site
 
 if you did Clone pods-dev-vvv
 Event Log:
@@ -20,25 +21,36 @@ Unregistered VCS root detected
 
 You can ignore it because we only care about Git in our Plugin Folder ( e.g. pods )
 
-
-1. Optional - Vagrant
+Optional - Vagrant
     Configure Vagrant: Settings -> Tools -> Vagrant
     PphStorm has Vagrant support but it's not needed
 
 
 #### Debugging in PhpStorm
+
 Setup the deployment configuration: Build, Execution, Deployment -> Deployment
+![Deployment Config](/screenshots/deployment.jpeg)
+Name it
 sftp server (127.0.0.1, 2222, vagrant/vagrant)
 Web server root URL
 path mappings for local and deployment
-Name it
 
+![Path Mappings](/screenshots/deploy_path.jpeg)
+
+Notice: i did Use the `htdocs Folder! (this way everything else just works out of the box)
+
+
+Test Debugging:
 
 Set Breakpoint
-Start Listening for incoming connections
+Start Listening for incoming connections  ( top right corner or Run -> Start Lis... almost at the end )
+Open your Browser http://pods.wordpress.dev
 
-Accept
+The First Time PhpStorm should Pop UP with
+![Debug](/screenshots/debug_incoming.jpeg)
 
+
+Press Accept
 Be Happy
 
 
