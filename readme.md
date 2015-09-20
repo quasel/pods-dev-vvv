@@ -2,6 +2,9 @@
 
 This is an [auto-sitesetup](https://github.com/Varying-Vagrant-Vagrants/VVV/wiki/Auto-site-Setup) designed to be used with [Varying Vagrants Vagrant](https://github.com/Varying-Vagrant-Vagrants/VVV) for developing pods or a custom website using pods.
 
+If you use PhpStorm take a look at  [HowTo Configure Debug & PHPUnit](https://github.com/quasel/pods-dev-vvv/blob/master/phpunit.md) for really easy steps to start using debugging (awesome!)
+
+
 ## To get started:
 
 Important: The Database `wordpress_<directory>` gets deleted on install/reset ( any special characters are removed from the Folder Name )
@@ -16,14 +19,16 @@ Then you can visit [http://pods.wordpress.dev](http://pods.wordpress.dev) to sta
 ### Need more than one? Want a different URL?
 
 1. Download or Copy to a new Folder
-2. Search&Replace `pods.wordpress.dev` in `vvv-hosts` `vvv-init.sh` `vvv-nginx.conf` with your desired URL
+2. Search&Replace `pods.wordpress.dev` in `vvv-hosts`, `vvv-init.sh` and `vvv-nginx.conf` with your desired URL
 3. -> Get Started ^^
 
-## To start over or update ( reset ):
+### To start over or update ( reset ):
 
-### A fresh start:
-You can do it the soft way using `vagrant ssh -c 'cd /srv/www/pods-dev-vvv/ && rm -Rf htdocs/ && sh vvv-init.sh'`. Or, you can do it the hard way `vagrant reload --provision` and get a cup of coffee.
-### Just update everything except pods:
+#### A fresh start:
+- You can do it the soft way using `vagrant ssh -c 'cd /srv/www/pods-dev-vvv/ && rm -Rf htdocs/ && sh vvv-init.sh'`.
+- Or, you can do it the hard way `vagrant reload --provision` and get a cup of coffee.
+
+#### Just update everything except pods:
 `vagrant ssh -c 'cd /srv/www/pods-dev-vvv/ && sh vvv-init.sh'`
 
 ## Dependencies
