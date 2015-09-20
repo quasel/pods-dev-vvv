@@ -65,7 +65,7 @@ _________________________
 
 # Changelog
 
-## 0,2
+## 0.2
 - improve images
 - improve text
 - improve layout
