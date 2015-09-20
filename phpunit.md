@@ -29,7 +29,7 @@ Configure Vagrant: Settings -> Tools -> Vagrant
 PphStorm has Vagrant support but it's not needed
 
 
-### Debugging in PhpStorm
+## Debugging in PhpStorm
 
 Setup the deployment configuration: Build, Execution, Deployment -> Deployment
 ![Deployment Config](/screenshots/deployment.jpeg)
@@ -58,8 +58,8 @@ Be Happy
 
 
 
-### Setup&Run PHPUnit
-
+## PHPUnit
+
 #### Configure remote PHP: Settings -> Languages & Frameworks -> PHP
 
 - Click the “...” to the right of the “Interpreter” drop down to open the interpreters dialog
