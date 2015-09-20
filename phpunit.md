@@ -63,8 +63,9 @@ Be Happy
 
 ## PHPUnit
 
-#### Configure remote PHP: Settings -> Languages & Frameworks -> PHP
+#### Configure remote PHP
 
+- goTo: Settings -> Languages & Frameworks -> PHP
 - Click the “...” to the right of the “Interpreter” drop down to open the interpreters dialog
 - In the “Interpreters” dialog, click the green “+” and select “Remote...”
 - Select the “Deployment configuration” radio button
@@ -79,8 +80,9 @@ Be Happy
 - Set the appropriate, matching PHP language level and click “OK” or “Apply” in the PHP config dialog
 
 
-#### Configure PHPUnit: Settings-> Languages & Frameworks -> PHP -> PHPUnit
+#### Configure PHPUnit:
 
+- goTo Settings-> Languages & Frameworks -> PHP -> PHPUnit
 - Click the green “+” to add “by Remote Interpreter”, select the remote PHP interpreter you configured, and click “OK”
 - Click “Use custom autoloader”
 - Click “...” to the right of “Path to script” and browse to the composer autoloader (“/usr/local/src/composer/vendor/autoload.php”) or copy&paste the path and click “OK”
@@ -90,22 +92,23 @@ Be Happy
 Default Configuration can be left empty we add the Configuration later
 Click “OK” or “Apply”
 
-#### Create a new Run/Debug Configuration: Run -> Edit Configurations (not in the Settings panel)
+#### Create a new Run/Debug Configuration
 
-Click the green “+”, add a new “PHPUnit” configuration, and name it
-Set “Test scope” to “Defined in the configuration file”
-Check ‘Use alternative configuration file’ and enter (or browse to) the path to the phpunit configuration file for this set of tests. In this case /srv/www/pods-dev-vvv/wp-content/plugins/pods/phpunit.xml.dist
+- goTo Run -> Edit Configurations (not in the Settings panel)
+- Click the green “+”, add a new “PHPUnit” configuration, and name it
+- Set “Test scope” to “Defined in the configuration file”
+- Check ‘Use alternative configuration file’ and enter (or browse to) the path to the phpunit configuration file for this set of tests. In this case /srv/www/pods-dev-vvv/wp-content/plugins/pods/phpunit.xml.dist
 
 ![PHPUnit Run Setup](/screenshots/phpunit_run_config.jpeg)
 
-Click “...” to create a new environment variable
-WP_TESTS_DIR and set it to “/srv/www/wordpress-develop/tests/phpunit/”
-WP_DEVELOP_DIR and set it to “/srv/www/wordpress-develop” (no trailing slash)
+- Click “...” to create a new environment variable
+- WP_TESTS_DIR and set it to “/srv/www/wordpress-develop/tests/phpunit/”
+- WP_DEVELOP_DIR and set it to “/srv/www/wordpress-develop” (no trailing slash)
 
 ![PHPUnit Environment](/screenshots/environment.jpeg)
 
-Click “OK”
-Click “OK” to apply the changes
+- Click “OK”
+- Click “OK” to apply the changes
 
 #### Run Tests
 - Run your Configuration: Run -> ‘your config name….’
